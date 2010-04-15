@@ -1,3 +1,5 @@
+require 'uri'
+
 class Redis
   class Client
     BLOCKING_COMMANDS = {
@@ -11,7 +13,7 @@ class Redis
     DOLLAR   = "$".freeze
     ASTERISK = "*".freeze
 
-    attr_accessor :db
+    attr_accessor :db, :host, :port, :password
 
     def initialize(options = {})
       @host = options[:host] || "127.0.0.1"
